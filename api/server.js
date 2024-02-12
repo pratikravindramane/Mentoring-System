@@ -15,6 +15,8 @@ const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
 
+
+// put the mongodb string in the env file and git ignore it
 const connect = async () => {
   try {
     await mongoose.connect(
@@ -44,8 +46,8 @@ app.use((err, req, res, next) => {
 
   return res.status(errorStatus).send(errorMessage);
 });
-
+// put the port in process.env
 app.listen(8800, () => {
   connect();
-  console.log("Backend server is running!");
+  console.log(`Backend server is running!`);
 });
